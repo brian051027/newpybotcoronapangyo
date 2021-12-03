@@ -14,18 +14,18 @@ import warnings
 import requests
 import time
 
-client = discord.Client() # Create Instance of Client. This Client is discord server's connection to Discord Room
+client = discord.Client() # 클라이언트 인스턴스를 만든다. 이 클라이언트는 디스코드 서버가 디스코드 방에 연결하는 것
 bottoken = ""
 
 
-@client.event # Use these decorator to register an event.
+@client.event # 봇의 현재상태
 async def on_ready(): # on_ready() event : when the bot has finised logging in and setting things up
     await client.change_presence(status=discord.Status.online, activity=discord.Game("!코로나를 처보세요."))
     print("New log in as {0.user}".format(client))
 
 @client.event
-async def on_message(message): # on_message() event : when the bot has recieved a message
-    #To user who sent message
+async def on_message(message): # on_message() event : 봇이 메시지를 
+    #메시지를 보낸사람에게 전송
     # await message.author.send(msg)
     print(message.content)
     if message.author == client.user:
